@@ -1,0 +1,18 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+#canvas {
+    border: 2px solid #ddd;
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+input[type="file"] {
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+}
