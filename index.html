@@ -10,12 +10,23 @@
 <body>
     <h1>上传文件或点击区域朗读</h1>
     <input type="file" id="fileInput" accept=".pdf,.png,.jpg,.jpeg,.txt">
-    <canvas id="canvas"></canvas>
+    <!-- <canvas id="canvas"></canvas> -->
+    <div id="pdfContainer"></div> <!-- 替代原<canvas>元素 -->
     <div id="textPreview"></div>
     
     <!-- 引入依赖库 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     <script src="https://unpkg.com/tesseract.js@3.0.3/dist/tesseract.min.js"></script>
     <script src="app.js"></script>
+
+    <!-- 强制刷新Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(registrations => {
+                registrations.forEach(reg => reg.unregister());
+                setTimeout(() => location.reload(), 500);
+            });
+        }
+    </script>
 </body>
 </html>
